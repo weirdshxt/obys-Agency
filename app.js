@@ -37,8 +37,8 @@ function loaderAnimation() {
 
   tl.to("#loader", {
     y: "-100%",
-    duration: 0.4,
-    delay: 0.6,
+    duration: 0.2,
+    delay: 0.3,
   });
 
   tl.to("#loader", {

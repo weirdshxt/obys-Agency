@@ -148,7 +148,7 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2.5vw 5.5vw;
+  padding: 2.9vw 5.5vw;
 }
 
 #navbar .logo{
@@ -171,8 +171,7 @@ h6 {
 #nav-option{
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 3vw;
+  gap: 2.4vw;
 }
 
 #nav-option h4{
@@ -183,14 +182,27 @@ h6 {
 
 
 .hero{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   width: 72%;
   margin-left: 27%;
   height: fit-content;
   overflow: hidden;
 }
 
-.hero:nth-child(2){
-  margin-top: 19vh;
+.hero:nth-child(3){
+  margin-top: 17vh;
+}
+
+#page1 h2{
+  position: absolute;
+  top: 31.2vh;
+  left: 19%;
+  font-size: 3.3vw;
+  font-weight: 500;
+  font-family: 'silk serif';
+  margin-left: -10px;
 }
 
 #page1 .hero h1{
@@ -215,4 +227,8 @@ h6 {
   color: transparent;
   border-bottom: 0;
   transition: 0.2s ease;
+}
+
+.hero:nth-child(6){
+  margin-top: -0.8vw;
 }
