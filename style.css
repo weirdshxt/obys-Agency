@@ -10,7 +10,21 @@ html,
 body {
   height: 100%;
   width: 100%;
+  cursor: none;
 }
+
+.cursor{
+  height: 2.5vw;
+  width: 2.5vw;
+  border-radius: 50%;
+  border: 1px solid #727070;
+  position: fixed;
+  z-index: 999;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
 
 #loader {
   overflow: hidden;
@@ -35,6 +49,7 @@ body {
   align-items: center;
   justify-content: flex-start;
   gap: 1.3vw;
+  line-height: 6vw;
 }
 
 .l-text:nth-child(1) {
@@ -107,6 +122,18 @@ h6 {
   text-align: right;
 }
 
+#loader .l-msge{
+  position: relative;
+  left: 25%;
+  top: 20%;
+  line-height: 1.1vw;
+}
+
+.l-msge p{
+  font-size: 1vw;
+  font-weight: 300;
+}
+
 #main {
   position: relative;
   background-color: #151515;
@@ -117,3 +144,75 @@ h6 {
   width: 100%;
 }
 
+#page1 #navbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.5vw 5.5vw;
+}
+
+#navbar .logo{
+  pointer-events: none;
+}
+
+#navbar .nav-text{
+  position: absolute;
+  top: 6%;
+  left: 28%;
+  line-height: 1.1vw;
+}
+
+.nav-text p{
+  font-size: 1vw;
+  font-weight: 300;
+}
+
+
+#nav-option{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3vw;
+}
+
+#nav-option h4{
+  font-size: 1vw;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+
+
+.hero{
+  width: 72%;
+  margin-left: 27%;
+  height: fit-content;
+  overflow: hidden;
+}
+
+.hero:nth-child(2){
+  margin-top: 19vh;
+}
+
+#page1 .hero h1{
+  font-size: 7.5vw;
+  line-height: 7.7vw;
+  text-transform: uppercase;
+  font-weight: 500;
+  height: fit-content;
+}
+
+.hero h1 span{
+  display: inline-block;
+  height: fit-content;
+  border-bottom: 0.6vw solid #fff;
+  margin-right: 0.3vw;
+  position: relative;
+  z-index: 99999;
+}
+
+.hero h1 span:hover{
+  -webkit-text-stroke: 1px #fff;
+  color: transparent;
+  border-bottom: 0;
+  transition: 0.2s ease;
+}
