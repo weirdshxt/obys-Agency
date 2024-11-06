@@ -1,8 +1,6 @@
 function locomotiveScroll() {
   gsap.registerPlugin(ScrollTrigger);
 
-  // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
-
   const locoScroll = new LocomotiveScroll({
     el: document.querySelector("#main"),
     smooth: true,
@@ -10,7 +8,7 @@ function locomotiveScroll() {
   // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
   locoScroll.on("scroll", ScrollTrigger.update);
 
-  // tell ScrollTrigger to use these proxy methods for the "#main" element since Locomotive Scroll is hijacking things
+  // tell ScrollTrigger to use these proxy methods for the "#main" flagent since Locomotive Scroll is hijacking things
   ScrollTrigger.scrollerProxy("#main", {
     scrollTop(value) {
       return arguments.length
@@ -37,7 +35,6 @@ function locomotiveScroll() {
   // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
   ScrollTrigger.refresh();
 }
-
 locomotiveScroll();
 
 function loaderAnimation() {
@@ -108,7 +105,6 @@ function loaderAnimation() {
     display: "none",
   });
 }
-
 loaderAnimation();
 
 document.addEventListener("mousemove", (dets) => {
@@ -117,6 +113,24 @@ document.addEventListener("mousemove", (dets) => {
     top: dets.y,
   });
 });
+
+function flagAnimation() {
+  let flag = document.querySelector(".flag h1");
+
+  flag.addEventListener("mousemove", (event) => {
+    gsap.to(".flag img", {
+      left: event.clientX - 180,
+      top: event.clientY - 125,
+      opacity: 0.7,
+    });
+  });
+  flag.addEventListener("mouseleave", () => {
+    gsap.to(".flag img", {
+      opacity: 0,
+    });
+  });
+}
+flagAnimation();
 
 function videoPlayer() {
   let vCursor = document.querySelector("#v-container");
@@ -162,14 +176,13 @@ function videoPlayer() {
   });
   vCursor.addEventListener("mouseleave", () => {
     gsap.to("#v-cursor", {
-      left: "68%",
+      left: "70%",
       top: "-0%",
     });
     gsap.to(".cursor", {
       opacity: 1,
     });
   });
-
 }
 videoPlayer();
 
@@ -264,12 +277,11 @@ function sheryAnimation() {
 }
 sheryAnimation();
 
-function projectsTextAnime(){
-
+function projectsTextAnime() {
   const projects = document.querySelectorAll(".projects");
   projects.forEach((hEffect) => {
     const items = hEffect.querySelectorAll(".projects .p-effect h2");
-  
+
     hEffect.addEventListener("mouseenter", () => {
       handleMouseEnter();
       items[0].style.transform = "translateY(-20px)"; // Move up
@@ -277,7 +289,7 @@ function projectsTextAnime(){
       items[1].style.transform = "translateY(0)"; // Move down
       items[1].style.opacity = "1"; // Fade in
     });
-  
+
     hEffect.addEventListener("mouseleave", () => {
       handleMouseLeave();
       items[0].style.transform = "translateY(0)"; // Reset position
@@ -286,6 +298,59 @@ function projectsTextAnime(){
       items[1].style.opacity = "0"; // Fade out
     });
   });
-
 }
 projectsTextAnime();
+
+function footerAnimation() {
+  var clutter = "";
+  var clutter2 = "";
+  document
+    .querySelector(".f-text .f-text1")
+    .textContent.split("")
+    .forEach(function (elem) {
+      clutter += `<span>${elem}</span>`;
+    });
+  document.querySelector(".f-text .f-text1").innerHTML = clutter;
+  document
+    .querySelector(".f-text .f-text2")
+    .textContent.split("")
+    .forEach(function (elem) {
+      clutter2 += `<span>${elem}</span>`;
+    });
+  document.querySelector(".f-text .f-text2").innerHTML = clutter2;
+
+  document.querySelector(".f-text").addEventListener("mouseenter", function () {
+    gsap.to(".f-text1 span", {
+      opacity: 0,
+      stagger: 0.05,
+    });
+    gsap.to(".f-text2 span", {
+      delay: 0.35,
+      opacity: 1,
+      stagger: 0.1,
+    });
+    gsap.to("#footer svg", {
+      left: "10%",
+      duration: 0.5,
+      delay: 1.4,
+    });
+  });
+  document.querySelector(".f-text").addEventListener("mouseleave", function () {
+    gsap.to(".f-text1 span", {
+      opacity: 1,
+      stagger: 0.1,
+      delay: 0.35,
+    });
+    gsap.to(".f-text2 span", {
+      opacity: 0,
+      stagger: 0.05,
+    });
+    gsap.to("#footer svg", {
+      left: "2%",
+      duration: 0.4,
+      delay: 1.3,
+    });
+  });
+}
+
+footerAnimation();
