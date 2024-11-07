@@ -288,7 +288,6 @@ h6 {
   height: -moz-fit-content;
   height: fit-content;
   overflow: hidden;
-  position: relative;
 }
 
 .hero:nth-child(3) {
