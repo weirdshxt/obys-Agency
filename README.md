@@ -1,7 +1,7 @@
 # 🌟 Obys Agency
  Welcome to the **Obys Agency Clone**! This project is a replica of the Obys Agency website, showcasing a creative design agency's portfolio and services. The website features smooth scrolling, engaging animations, and a modern design aesthetic.
 
-![Obys Agency](https://weirdshxt.github.io/obys-Agency/)
+[Obys Agency](https://weirdshxt.github.io/obys-Agency/)
 
   ## 📚 Table of Contents 
   - [Features](#features) 
